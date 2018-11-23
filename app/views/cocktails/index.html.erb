@@ -1,10 +1,22 @@
-<h1>Mister Cocktails</h1>
-<p>Find all your cocktails here </p>
-<ul>
-  <% @cocktails.each do |f| %>
-  <li>
-    <%= link_to f.name, cocktail_path(f) %> <%= link_to 'Delete', cocktail_path(f), method: :delete, data: { confirm: "Are you sure?" }  %>
-  </li>
-  <% end %>
-</ul>
-  <%= link_to 'add a cocktail', new_cocktail_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>Mister Cocktails</h1>
+    <p>Find all your cocktails here </p>
+    <a class="btn btn-primary btn-lg">Start now</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card_container">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+        <div class="card-description">
+          <h2><%= cocktail.name %></h2>
+        </div>
+       <%= link_to "", cocktail_path(cocktail), class:"card-link" %>
+      <%= link_to 'Delete', cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" }, class:"card-delete"  %>
+      </div>
+    <% end %>
+   </div>
+
+</div>
